@@ -1,0 +1,16 @@
+{
+  "name": "college-assignment-tracker",
+  "version": "1.0.0",
+  "description": "Aplikasi pelacak tugas kuliah berbasis web klien dengan Vanilla JS dan TDD",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [
+    "assignment-tracker",
+    "vanilla-js",
+    "tdd"
+  ],
+  "author": "",
+  "license": "ISC"
+}
