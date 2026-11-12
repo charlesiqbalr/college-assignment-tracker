@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracker Tugas Kuliah</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-container">
+      <h1>Tracker Tugas Kuliah</h1>
+      <p class="app-description">Kelola dan pantau tenggat waktu tugas akademik Anda secara efisien dan terorganisir.</p>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section class="form-section card" aria-labelledby="form-heading">
+      <h2 id="form-heading">Tambah Tugas Baru</h2>
+      <form id="assignment-form" class="assignment-form" novalidate>
+        <div class="form-group">
+          <label for="assignment-title">Judul Tugas</label>
+          <input
+            type="text"
+            id="assignment-title"
+            name="title"
+            maxlength="100"
+            required
+            aria-describedby="title-error"
+            placeholder="Contoh: Makalah Algoritma dan Pemrograman"
+          >
+          <span id="title-error" class="error-text" aria-live="polite"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="assignment-course">Mata Kuliah</label>
+          <input
+            type="text"
+            id="assignment-course"
+            name="course"
+            maxlength="50"
+            list="course-suggestions"
+            required
+            aria-describedby="course-error"
+            placeholder="Contoh: Algoritma & Pemrograman"
+          >
+          <datalist id="course-suggestions"></datalist>
+          <span id="course-error" class="error-text" aria-live="polite"></span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group form-group-half">
+            <label for="assignment-due-date">Tenggat Waktu</label>
+            <input
+              type="datetime-local"
+              id="assignment-due-date"
+              name="dueDate"
+              required
+              aria-describedby="due-date-error"
+            >
+            <span id="due-date-error" class="error-text" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group form-group-half">
+            <label for="assignment-priority">Prioritas</label>
+            <select id="assignment-priority" name="priority">
+              <option value="low">Rendah</option>
+              <option value="medium" selected>Sedang</option>
+              <option value="high">Tinggi</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="assignment-notes">Catatan Tambahan (Opsional)</label>
+          <textarea
+            id="assignment-notes"
+            name="notes"
+            maxlength="500"
+            rows="3"
+            placeholder="Tambahkan catatan atau instruksi pengerjaan jika ada..."
+          ></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submit-button" class="btn btn-primary">Simpan Tugas</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="list-section card" aria-labelledby="list-heading">
+      <h2 id="list-heading">Daftar Tugas</h2>
+
+      <div class="toolbar" role="toolbar" aria-label="Filter dan Pengurutan Tugas">
+        <div class="toolbar-group">
+          <label for="filter-status">Filter Status:</label>
+          <select id="filter-status">
+            <option value="all">Semua</option>
+            <option value="pending">Belum Selesai</option>
+            <option value="completed">Selesai</option>
+          </select>
+        </div>
+
+        <div class="toolbar-group">
+          <label for="filter-course">Filter Mata Kuliah:</label>
+          <select id="filter-course">
+            <option value="all">Semua Mata Kuliah</option>
+          </select>
+        </div>
+
+        <div class="toolbar-group">
+          <label for="sort-by">Urutkan Berdasarkan:</label>
+          <select id="sort-by">
+            <option value="dueDate">Tenggat Waktu</option>
+            <option value="priority">Tingkat Prioritas</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="list-container">
+        <ul id="assignment-list" class="assignment-list" aria-live="polite"></ul>
+        <p id="empty-state" class="empty-state" hidden>Tidak ada tugas yang ditemukan.</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

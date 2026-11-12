@@ -1,0 +1,434 @@
+/* ==========================================================================
+   CSS Design System: Tracker Tugas Kuliah
+   Aksesibel, Semantik, dan Responsif
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-light: #eff6ff;
+
+  --color-text-main: #1e293b;
+  --color-text-muted: #64748b;
+  --color-text-inverted: #ffffff;
+
+  --color-bg-body: #f8fafc;
+  --color-bg-card: #ffffff;
+  --color-bg-input: #ffffff;
+  --color-border: #cbd5e1;
+  --color-border-focus: #3b82f6;
+
+  /* Status Colors */
+  --color-overdue-bg: #fef2f2;
+  --color-overdue-border: #ef4444;
+  --color-overdue-text: #991b1b;
+
+  --color-due-soon-bg: #fffbeb;
+  --color-due-soon-border: #f59e0b;
+  --color-due-soon-text: #92400e;
+
+  --color-completed-bg: #f0fdf4;
+  --color-completed-border: #22c55e;
+  --color-completed-text: #166534;
+
+  /* Priority Colors */
+  --priority-high-bg: #fee2e2;
+  --priority-high-text: #b91c1c;
+  --priority-medium-bg: #fef3c7;
+  --priority-medium-text: #b45309;
+  --priority-low-bg: #e0f2fe;
+  --priority-low-text: #0369a1;
+
+  /* Layout & Spacing */
+  --container-max-width: 960px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+
+  --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Box Sizing & Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg-body);
+  color: var(--color-text-main);
+  line-height: 1.5;
+  padding: 1.5rem 1rem;
+}
+
+/* Header */
+.app-header {
+  max-width: var(--container-max-width);
+  margin: 0 auto 2rem auto;
+  text-align: center;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 0.5rem;
+}
+
+.app-description {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+/* Main Container */
+.app-main {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Card Section */
+.card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+}
+
+.card h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  margin-bottom: 1.25rem;
+  border-bottom: 2px solid var(--color-bg-body);
+  padding-bottom: 0.75rem;
+}
+
+/* Form Styles */
+.assignment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.925rem;
+  color: var(--color-text-main);
+}
+
+input[type="text"],
+input[type="datetime-local"],
+select,
+textarea {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-input);
+  color: var(--color-text-main);
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  width: 100%;
+}
+
+input[type="text"]:focus,
+input[type="datetime-local"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Error Messages */
+.error-text {
+  font-size: 0.825rem;
+  color: var(--color-overdue-border);
+  min-height: 1.15rem;
+  font-weight: 500;
+}
+
+.input-error {
+  border-color: var(--color-overdue-border) !important;
+  background-color: var(--color-overdue-bg);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverted);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-danger {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.75rem;
+}
+
+.btn-danger:hover {
+  background-color: #fecaca;
+  color: #b91c1c;
+}
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--color-bg-body);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.5rem;
+}
+
+.toolbar-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.toolbar-group label {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* Assignment List Container */
+.assignment-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  background-color: var(--color-bg-body);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--color-border);
+}
+
+/* Assignment Item */
+.assignment-item {
+  position: relative;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border-left-width: 6px;
+}
+
+.assignment-item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.assignment-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.assignment-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.assignment-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+
+.assignment-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  word-break: break-word;
+}
+
+.assignment-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.assignment-notes {
+  font-size: 0.9rem;
+  color: var(--color-text-main);
+  background-color: var(--color-bg-body);
+  padding: 0.75rem;
+  border-radius: var(--radius-sm);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Badges */
+.badge,
+.badge-priority {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.775rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  line-height: 1;
+}
+
+/* Priority Badges */
+.priority-high {
+  background-color: var(--priority-high-bg);
+  color: var(--priority-high-text);
+  border: 1px solid #fca5a5;
+}
+
+.priority-medium {
+  background-color: var(--priority-medium-bg);
+  color: var(--priority-medium-text);
+  border: 1px solid #fcd34d;
+}
+
+.priority-low {
+  background-color: var(--priority-low-bg);
+  color: var(--priority-low-text);
+  border: 1px solid #7dd3fc;
+}
+
+/* Status Indicators */
+.due-status-overdue {
+  border-left-color: var(--color-overdue-border);
+  background-color: var(--color-overdue-bg);
+}
+
+.badge-overdue {
+  background-color: var(--color-overdue-bg);
+  color: var(--color-overdue-text);
+  border: 1px solid #f87171;
+}
+
+.due-status-due-soon {
+  border-left-color: var(--color-due-soon-border);
+  background-color: var(--color-due-soon-bg);
+}
+
+.badge-due-soon {
+  background-color: var(--color-due-soon-bg);
+  color: var(--color-due-soon-text);
+  border: 1px solid #fbbf24;
+}
+
+/* Completed State */
+.badge-completed {
+  background-color: var(--color-completed-bg);
+  color: var(--color-completed-text);
+  border: 1px solid #86efac;
+}
+
+.assignment-item[data-status="completed"] {
+  border-left-color: var(--color-completed-border);
+  opacity: 0.75;
+}
+
+.assignment-item[data-status="completed"] .assignment-title {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+/* Responsive Media Queries */
+@media (min-width: 640px) {
+  .form-row {
+    flex-direction: row;
+  }
+
+  .form-group-half {
+    flex: 1;
+  }
+
+  .toolbar {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .toolbar-group {
+    flex: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .app-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+}
